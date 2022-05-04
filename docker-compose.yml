@@ -1,0 +1,20 @@
+---
+services:
+  # Only need to bring up a psql instance
+  psql:
+    container_name: psql
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${SINK_NAME}
+      POSTGRES_PASSWORD: ${SINK_PASSWORD}
+      POSTGRES_USER: ${SINK_USER}
+    healthcheck:
+      interval: 10s
+      retries: 5
+      test: [ "CMD-SHELL", "pg_isready -U ${SINK_USER} -d ${SINK_NAME}" ]
+      timeout: 5s
+    image: postgres:12
+    ports:
+      - "${SINK_PORT}:${SINK_PORT}"
+    restart: on-failure
