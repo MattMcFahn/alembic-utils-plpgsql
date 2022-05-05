@@ -1,8 +1,8 @@
 """test
 
-Revision ID: fef638160f78
+Revision ID: 1dbf4d1484d4
 Revises: 45c0548f96e8
-Create Date: 2022-05-04 09:19:05.518459
+Create Date: 2022-05-04 16:08:18.591020
 
 """
 from alembic import op
@@ -11,7 +11,7 @@ from alembic_utils.pg_function import PGFunction
 from sqlalchemy import text as sql_text
 
 # revision identifiers, used by Alembic.
-revision = 'fef638160f78'
+revision = '1dbf4d1484d4'
 down_revision = '45c0548f96e8'
 branch_labels = None
 depends_on = None
